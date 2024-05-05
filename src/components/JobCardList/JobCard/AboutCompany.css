@@ -1,0 +1,26 @@
+.about-company {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.description {
+    height: 250px;
+    max-height: 250px;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 14px;
+    mask-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgba(255, 255, 255, 0));
+}
+
+.view-job {
+    color: blue;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: underline;
+}

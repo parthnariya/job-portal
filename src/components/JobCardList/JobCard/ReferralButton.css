@@ -1,0 +1,14 @@
+.referral-button {
+    width: 100%;
+    background-color: #5581ef;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 8px;
+    margin: 5px 0;
+    outline: 0px;
+    border: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    line-height: 1.75;
+}

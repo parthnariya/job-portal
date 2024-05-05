@@ -1,0 +1,14 @@
+.easy-apply {
+    width: 100%;
+    background-color: #55efc4;
+    font-weight: bolder;
+    padding: 8px 18px;
+    border-radius: 8px;
+    margin: 5px 0;
+    outline: 0px;
+    border: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    line-height: 1.75;
+}
