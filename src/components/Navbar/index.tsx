@@ -1,15 +1,13 @@
 import Filter from "./Filter";
 import "./Navbar.css";
-import { FilterTypeEnum } from "./types";
+import { dummyFilterData } from "./dummyFilterData";
 
 const Navbar = () => {
   return (
     <header className="header">
-      <Filter type={FilterTypeEnum.Role} options={["Frontend", "Backend"]} />
-      {/* <Filter type={FilterTypeEnum.NumberOfEmployee} valueSet={[]} />
-      <Filter type={FilterTypeEnum.Experience} valueSet={[]} />
-      <Filter type={FilterTypeEnum.Remote} valueSet={[]} />
-      <Filter type={FilterTypeEnum.MinimumBasePaySalary} valueSet={[]} /> */}
+      {dummyFilterData.map((item, index) => (
+        <Filter key={index} options={item.value} type={item.type} />
+      ))}
     </header>
   );
 };
