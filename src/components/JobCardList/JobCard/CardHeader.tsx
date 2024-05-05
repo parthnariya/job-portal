@@ -1,18 +1,22 @@
 import "./CardHeader.css";
-const CardHeader = () => {
+
+type PropType = {
+  imageUrl: string;
+  name: string;
+  role: string;
+  location: string;
+};
+
+const CardHeader = ({ imageUrl, location, name, role }: PropType) => {
   return (
     <div className="card-header">
       <div className="company-logo">
-        <img
-          src="https://storage.googleapis.com/weekday-assets/airtableAttachment_1713598322273_sjxlt.jpg"
-          alt="logo"
-          className="logo"
-        />
+        <img src={imageUrl} alt={name} className="logo" />
       </div>
       <div className="company-info">
-        <div className="name">FlexWash Technologies</div>
-        <div className="role">Senior Engineer</div>
-        <div className="location">India</div>
+        <div className="name">{name}</div>
+        <div className="role">{role}</div>
+        <div className="location">{location}</div>
       </div>
     </div>
   );

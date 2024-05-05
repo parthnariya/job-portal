@@ -1,12 +1,23 @@
+import { JobDetailsType } from "../../../store/types";
 import AboutCompany from "./AboutCompany";
 import CardHeader from "./CardHeader";
 import EasyApplyButton from "./EasyApplyButton";
 import "./JobCard.css";
 import ReferralButton from "./ReferralButton";
-const JobCard = () => {
+
+type PropsType = {
+  data: JobDetailsType;
+};
+
+const JobCard = ({ data }: PropsType) => {
   return (
     <div className="card">
-      <CardHeader />
+      <CardHeader
+        imageUrl={data.logoUrl || "https://logo.clearbit.com/intel.com"}
+        location={data.location || "Delhi"}
+        name={data.companyName || "Company Name"}
+        role={data.jobRole || "Role"}
+      />
       <div className="salary">Estimated Salary: ₹20 - 25 LPA ✅</div>
       <AboutCompany />
       <div className="experience">

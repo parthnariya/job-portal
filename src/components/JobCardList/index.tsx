@@ -1,25 +1,11 @@
-/* import { useEffect } from "react";
-import { useAppSelector } from "../../store"; */
+import { useAppSelector } from "../../store";
 import JobCard from "./JobCard";
 import "./JobCardList.css";
 function JobCardList() {
-  /* const { jobs, error, isLoading } = useAppSelector(
-    (state) => state.jobportalReducer
-  );
-
-  useEffect(() => {
-    console.log(jobs);
-  }, [jobs]); */
+  const { jobs } = useAppSelector((state) => state.jobportalReducer);
   return (
     <div className="job-card-list">
-      <JobCard />
-      <JobCard />
-      <JobCard />
-      <JobCard />
-      <JobCard />
-      <JobCard />
-      <JobCard />
-      <JobCard />
+      {jobs.length > 0 && jobs.map((item) => <JobCard data={item} key={item.jdLink} />)}
     </div>
   );
 }

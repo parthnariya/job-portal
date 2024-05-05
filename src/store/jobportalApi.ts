@@ -25,8 +25,12 @@ export const getJobsList = async (offset: number = 0) => {
       throw Error("Something went wrong");
     }
 
-    const data: JobDetailsType[] = await response.json();
-    return data;
+    const data: {
+      jdList: JobDetailsType[];
+      totalCount: number;
+    } = await response.json();
+    // console.log(data.jdList);
+    return data.jdList;
   } catch (error) {
     return [];
   }

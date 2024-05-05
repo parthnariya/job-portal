@@ -16,6 +16,7 @@ const jobportalSlice = createSlice({
     builder.addCase(getJobListAsyncThunk.pending, (state) => {
       state.isLoading = true;
       state.error = undefined;
+      state.jobs = []
     });
     builder.addCase(getJobListAsyncThunk.fulfilled, (state, action) => {
       const { payload } = action;
@@ -27,6 +28,7 @@ const jobportalSlice = createSlice({
       const { error } = action;
       state.isLoading = false;
       state.error = error.message || "Something went wrong";
+      state.jobs = []
     });
   },
 });
