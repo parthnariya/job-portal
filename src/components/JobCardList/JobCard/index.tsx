@@ -18,11 +18,14 @@ const JobCard = ({ data }: PropsType) => {
         name={data.companyName || "Company Name"}
         role={data.jobRole || "Role"}
       />
-      <div className="salary">Estimated Salary: ₹20 - 25 LPA ✅</div>
-      <AboutCompany />
+      <div className="salary">
+        Estimated Salary: ₹{data.minJdSalary || 0} - ${data.maxJdSalary || 0}{" "}
+        LPA ✅
+      </div>
+      <AboutCompany description={data.jobDetailsFromCompany || ""}/>
       <div className="experience">
         <div className="experience-label">Minimum Experience</div>
-        <div className="experience-value">3 years</div>
+        <div className="experience-value">${data.minExp || 0} years</div>
       </div>
       <EasyApplyButton />
       <ReferralButton />
