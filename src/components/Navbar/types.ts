@@ -1,9 +1,9 @@
 export enum FilterTypeEnum {
-  NumberOfEmployee = "NumberOfEmployee",
+  NumberOfEmployee = "Number Of Employee",
   Experience = "Experience",
   Remote = "Remote",
-  MinimumBasePaySalary = "MinimumBasePaySalary",
-  Role = "Role",
+  MinimumBasePaySalary = "Minimum Base Pay Salary",
+  Role = "Roles",
 }
 export type FilterType = {
   type: FilterTypeEnum;

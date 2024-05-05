@@ -1,13 +1,48 @@
-import Chip from "./Chip";
+import { useState } from "react";
+// import Chip from "./Chip";
 import ChipOptionList from "./ChipOptionList";
 import "./Filter.css";
-const Filter = () => {
+import { FilterTypeEnum } from "../types";
+
+type PropsType = {
+  type: FilterTypeEnum;
+  options: string[];
+};
+
+const Filter = ({ type, options }: PropsType) => {
+  /* state which control the condition to show list of option */
+  const [showOptionList, setShowOptionList] = useState(false);
+
+  /* state which store the all options list */
+  const [listOptions, setListOptions] = useState(options);
+
+  /* function to open list */
+  const openListHandler = () => {
+    setShowOptionList(() => true);
+  };
+
+  /* function to close list */
+  const closeListHandler = () => {
+    setShowOptionList(() => false);
+  };
+
+  /* function to handler option selection on list */
+  const onSelectHandler = (opt: string) => {
+    /* remove selected option from option list */
+    const newOptions = listOptions.filter((item) => item === opt);
+    setListOptions(() => newOptions);
+
+
+
+    closeListHandler();
+  };
+
   return (
     <div className="filter-container">
       <div className="dropdown-container">
-        {/* <div className="placeholder">Enter Employee</div> */}
-
-        <Chip />
+        <div className="placeholder">{type}</div>
+        {}
+        {/* <Chip /> */}
         {/* <Chip />
         <Chip /> */}
         <div className="input-container">
@@ -15,11 +50,16 @@ const Filter = () => {
         </div>
       </div>
 
-      <div className="icon-container">
+      <div className="icon-container" onClick={openListHandler}>
         <span className="divider"></span>
         <div className="icon">&#709;</div>
       </div>
-      <ChipOptionList />
+      {showOptionList && (
+        <ChipOptionList
+          onSelectHandler={onSelectHandler}
+          options={listOptions}
+        />
+      )}
     </div>
   );
 };
