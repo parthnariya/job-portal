@@ -1,3 +1,28 @@
 .job-card-list {
-    
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    margin: 10px;
+    gap: 16px;
+    place-items: center;
+    overflow: auto;
+}
+
+@media (min-width: 660px) {
+    .job-card-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 890px) {
+    .job-card-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1040px) {
+    .job-card-list {
+
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 }

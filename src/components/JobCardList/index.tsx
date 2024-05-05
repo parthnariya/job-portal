@@ -3,6 +3,13 @@ import "./JobCardList.css";
 function JobCardList() {
   return <div className="job-card-list">
     <JobCard />
+    <JobCard />
+    <JobCard />
+    <JobCard />
+    <JobCard />
+    <JobCard />
+    <JobCard />
+    <JobCard />
   </div>;
 }
 
