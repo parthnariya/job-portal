@@ -31,6 +31,8 @@ const Filter = ({ type, options }: PropsType) => {
 
   /* function to handler option selection on list */
   const onSelectHandler = (opt: string) => {
+    if (listOptions.length === 0) return;
+
     /* remove selected option from option list */
     const newOptions = listOptions.filter((item) => item !== opt);
     setListOptions(() => newOptions);
@@ -41,15 +43,30 @@ const Filter = ({ type, options }: PropsType) => {
     closeListHandler();
   };
 
+  /* function to handel deletion of selected options */
+  const onDeselectValueHandler = (opt: string) => {
+    /* remove selected option from  selected value list */
+    const newOptions = selectedValue.filter((item) => item !== opt);
+    setSelectedValue(() => newOptions);
+
+    /* add item to  option list */
+    setListOptions((prev) => [...prev, opt]);
+  };
+
   return (
     <div className="filter-container">
-      
       <div className="dropdown-container">
         {selectedValue.length === 0 && (
           <div className="placeholder">{type}</div>
         )}
         {selectedValue.length > 0 &&
-          selectedValue.map((item, index) => <Chip key={index} label={item} />)}
+          selectedValue.map((item, index) => (
+            <Chip
+              key={index}
+              label={item}
+              onDeselect={onDeselectValueHandler}
+            />
+          ))}
 
         <div className="input-container">
           <input type="text" className="input" />

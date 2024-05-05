@@ -33,7 +33,7 @@
     font-size: 12px;
 }
 
-.cross :hover {
+.cross:hover {
     background-color: #ffbdad;
     color: #de350b;
 }
