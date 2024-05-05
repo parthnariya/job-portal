@@ -1,10 +1,15 @@
+import Chip from "./Chip";
 import "./Filter.css";
 const Filter = () => {
   return (
     <div className="filter-container">
-      <div className="input-container">
-        <div className="placeholder">Enter Employee</div>
-        <div className="chip-container">
+      <div className="dropdown-container">
+        {/* <div className="placeholder">Enter Employee</div> */}
+
+        <Chip />
+        <Chip />
+        <Chip />
+        <div className="input-container">
           <input type="text" className="input" />
         </div>
       </div>
