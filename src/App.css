@@ -6,13 +6,6 @@
   padding-bottom: 2rem;
   max-width: 100%;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-
-
   @media (min-width: 640px) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
