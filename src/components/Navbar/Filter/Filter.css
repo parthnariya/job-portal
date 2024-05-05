@@ -6,6 +6,7 @@
     border: #cccccc 1px solid;
     border-radius: 4px;
     outline: 0px !important;
+    position: relative;
 }
 
 .dropdown-container {

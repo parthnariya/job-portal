@@ -5,9 +5,9 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return <header className="header">
+    {/* <Filter />
     <Filter />
-    <Filter />
-    <Filter />
+    <Filter /> */}
     <Filter />
   </header>;
 };

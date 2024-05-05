@@ -1,0 +1,29 @@
+.list {
+    position: absolute;
+    background-color: inherit;
+    width: inherit;
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    /* box-shadow: ; */
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 1px;
+    transition: max-height .6s ease-out;
+
+}
+
+.list-item {
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    list-style: none;
+    padding: 8px;
+
+}
+
+.list-item:hover {
+    background-color: #f4f4f4;
+}

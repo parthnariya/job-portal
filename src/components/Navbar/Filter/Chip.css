@@ -2,7 +2,7 @@
     display: flex;
     /* min-width: 0px; */
     min-width: max-content;
-    background-color: rgb(230, 230, 230);
+    background-color: #e6e6e6;
     border-radius: 2px;
     margin: 2px;
     box-sizing: border-box;

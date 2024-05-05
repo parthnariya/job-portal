@@ -1,4 +1,5 @@
 import Chip from "./Chip";
+import ChipOptionList from "./ChipOptionList";
 import "./Filter.css";
 const Filter = () => {
   return (
@@ -7,16 +8,18 @@ const Filter = () => {
         {/* <div className="placeholder">Enter Employee</div> */}
 
         <Chip />
-        <Chip />
-        <Chip />
+        {/* <Chip />
+        <Chip /> */}
         <div className="input-container">
           <input type="text" className="input" />
         </div>
       </div>
+
       <div className="icon-container">
         <span className="divider"></span>
         <div className="icon">&#709;</div>
       </div>
+      <ChipOptionList />
     </div>
   );
 };
