@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import Chip from "./Chip";
+import Chip from "./Chip";
 import ChipOptionList from "./ChipOptionList";
 import "./Filter.css";
 import { FilterTypeEnum } from "../types";
@@ -16,6 +16,9 @@ const Filter = ({ type, options }: PropsType) => {
   /* state which store the all options list */
   const [listOptions, setListOptions] = useState(options);
 
+  /* state which maintain the array of selected options */
+  const [selectedValue, setSelectedValue] = useState<Array<string>>([]);
+
   /* function to open list */
   const openListHandler = () => {
     setShowOptionList(() => true);
@@ -29,22 +32,25 @@ const Filter = ({ type, options }: PropsType) => {
   /* function to handler option selection on list */
   const onSelectHandler = (opt: string) => {
     /* remove selected option from option list */
-    const newOptions = listOptions.filter((item) => item === opt);
+    const newOptions = listOptions.filter((item) => item !== opt);
     setListOptions(() => newOptions);
 
-
+    /* add item to selected value's array */
+    setSelectedValue((prev) => [...prev, opt]);
 
     closeListHandler();
   };
 
   return (
     <div className="filter-container">
+      
       <div className="dropdown-container">
-        <div className="placeholder">{type}</div>
-        {}
-        {/* <Chip /> */}
-        {/* <Chip />
-        <Chip /> */}
+        {selectedValue.length === 0 && (
+          <div className="placeholder">{type}</div>
+        )}
+        {selectedValue.length > 0 &&
+          selectedValue.map((item, index) => <Chip key={index} label={item} />)}
+
         <div className="input-container">
           <input type="text" className="input" />
         </div>
@@ -54,7 +60,7 @@ const Filter = ({ type, options }: PropsType) => {
         <span className="divider"></span>
         <div className="icon">&#709;</div>
       </div>
-      {showOptionList && (
+      {showOptionList && listOptions.length > 0 && (
         <ChipOptionList
           onSelectHandler={onSelectHandler}
           options={listOptions}
