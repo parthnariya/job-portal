@@ -8,11 +8,11 @@ export const dummyFilterData: FilterType[] = [
   },
   {
     type: FilterTypeEnum.Remote,
-    value: ["Hybrid", "Remote", "In-Office"],
+    value: ["hybrid", "remote", "In-Office"],
   },
   {
     type: FilterTypeEnum.Role,
-    value: ["Backend", "Frontend", "Flutter", "IOS", "Fullstack", "Android"],
+    value: ["backend", "frontend", "flutter", "ios", "fullstack", "android"],
   },
 
   {

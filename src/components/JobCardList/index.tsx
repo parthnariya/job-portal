@@ -6,7 +6,6 @@ function JobCardList() {
   const { jobs } = useAppSelector((state) => state.jobportalReducer);
   const { filterArray } = useAppSelector((state) => state.filterReducer);
   const filterData = useFilterData(jobs, filterArray);
-  console.log(filterData);
   return (
     <div className="job-card-list">
       {filterData.length > 0 &&

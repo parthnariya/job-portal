@@ -4,7 +4,7 @@ import ChipOptionList from "./ChipOptionList";
 import "./Filter.css";
 import { FilterTypeEnum } from "../types";
 import { useAppDispatch } from "../../../store";
-import { addFilter } from "../../../store/filterSlice";
+import { addFilter, removeFilter } from "../../../store/filterSlice";
 
 type PropsType = {
   type: FilterTypeEnum;
@@ -58,6 +58,9 @@ const Filter = ({ type, options }: PropsType) => {
 
     /* add item to  option list */
     setListOptions((prev) => [...prev, opt]);
+
+    /* dispatch action for filter data */
+    dispatch(removeFilter({ filter: type, value: opt }));
   };
 
   return (

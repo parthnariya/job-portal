@@ -34,3 +34,9 @@ export type AddFilterPayloadType = {
   filter: FilterTypeEnum;
   value: string;
 };
+
+/* Remove filter payload type */
+export type RemoveFilterPayloadType = {
+  filter: FilterTypeEnum;
+  value: string;
+};

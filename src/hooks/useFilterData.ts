@@ -5,28 +5,30 @@ import { FilterTypeArray } from "../utils/filterType";
 function filterFunction(
   jobs: JobDetailsType[],
   filter: FilterTypeEnum,
-  filterValue: string
+  filterValue: string[]
 ) {
   let result: JobDetailsType[] = [];
   switch (filter) {
     case FilterTypeEnum.Experience:
-      result = jobs.filter((item) => item.minExp === +filterValue);
+      result = jobs.filter(
+        (item) => item.minExp && filterValue.includes(item.minExp.toString())
+      );
       break;
     case FilterTypeEnum.Role:
       result = jobs.filter(
-        (item) =>
-          item.jobRole?.toLocaleLowerCase() === filterValue.toLocaleLowerCase()
+        (item) => item.jobRole && filterValue.includes(item.jobRole)
       );
       break;
     case FilterTypeEnum.MinimumBasePaySalary:
-      result = jobs.filter((item) => item.minJdSalary === +filterValue);
+      result = jobs.filter(
+        (item) =>
+          item.minJdSalary && filterValue.includes(item.minJdSalary.toString())
+      );
       break;
     case FilterTypeEnum.Remote:
-      if (filterValue === "Remote") {
-        result = jobs.filter((item) => item.location === "remote");
-      } else if (filterValue === "In-Office") {
-        result = jobs.filter((item) => item.location !== "remote");
-      }
+      result = jobs.filter(
+        (item) => item.location && filterValue.includes(item.location)
+      );
       break;
     default:
       result = jobs;
