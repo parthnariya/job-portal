@@ -30,6 +30,16 @@ function filterFunction(
         (item) => item.location && filterValue.includes(item.location)
       );
       break;
+    case FilterTypeEnum.CompanyName:
+      result = jobs.filter(
+        (item) =>
+          item.companyName &&
+          item.companyName
+            .toLocaleLowerCase()
+            .toLocaleLowerCase()
+            .includes(filterValue[0])
+      );
+      break;
     default:
       result = jobs;
       break;

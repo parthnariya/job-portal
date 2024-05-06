@@ -2,8 +2,10 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
   AddFilterPayloadType,
   FilterSliceStateType,
+  FilterWithSearchPayloadType,
   RemoveFilterPayloadType,
 } from "./types";
+import { FilterTypeEnum } from "../components/Navbar/types";
 
 const initialState: FilterSliceStateType = {
   filterArray: [],
@@ -52,9 +54,26 @@ const filterSlice = createSlice({
         state.filterArray = newFilter.filter((item) => item.value.length > 0);
       }
     },
+
+    /* filter with search */
+    searchFilter: (
+      state,
+      action: PayloadAction<FilterWithSearchPayloadType>
+    ) => {
+      const { value } = action.payload;
+      const newFilter = state.filterArray;
+      const searchExistIndex = newFilter.findIndex(
+        (item) => item.type === FilterTypeEnum.CompanyName
+      );
+      if (searchExistIndex === -1) {
+        newFilter.push({ type: FilterTypeEnum.CompanyName, value: [value] });
+      } else {
+        newFilter[searchExistIndex].value = [value];
+      }
+    },
   },
 });
-export const { addFilter, removeFilter } = filterSlice.actions;
+export const { addFilter, removeFilter, searchFilter } = filterSlice.actions;
 
 const filterReducer = filterSlice.reducer;
 export default filterReducer;

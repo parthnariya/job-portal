@@ -40,3 +40,8 @@ export type RemoveFilterPayloadType = {
   filter: FilterTypeEnum;
   value: string;
 };
+
+/* Filter with search payload type */
+export type FilterWithSearchPayloadType = {
+  value: string;
+};

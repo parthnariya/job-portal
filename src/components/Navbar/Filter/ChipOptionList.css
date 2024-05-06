@@ -1,12 +1,13 @@
 .list {
     position: absolute;
-    background-color: inherit;
+    background-color: #fafafa;
     width: inherit;
     list-style: none;
     padding: 8px;
     margin: 0;
     top: 100%;
     left: 0;
+    z-index: 999;
     /* box-shadow: ; */
     background: #fafafa;
     border: 1px solid #eee;
