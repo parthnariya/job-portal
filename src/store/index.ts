@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import jobportalReducer from "./jobportalSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import filterReducer from "./filterSlice";
 
 export const store = configureStore({
   reducer: {
     jobportalReducer: jobportalReducer,
+    filterReducer: filterReducer,
   },
 });
 

@@ -1,3 +1,6 @@
+import { FilterTypeEnum } from "../components/Navbar/types";
+import { FilterTypeArray } from "../utils/filterType";
+
 export type JobDetailsType = {
   jdUid?: string;
   jdLink?: string;
@@ -19,4 +22,15 @@ export type JobSliceStateType = {
   jobs: JobDetailsType[];
   isLoading: boolean;
   error: string | undefined;
+};
+
+/* type of slice which store all filters */
+export type FilterSliceStateType = {
+  filterArray: FilterTypeArray;
+};
+
+/* Add filter payload type */
+export type AddFilterPayloadType = {
+  filter: FilterTypeEnum;
+  value: string;
 };
