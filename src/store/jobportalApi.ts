@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { JobDetailsType } from "./types";
 
-export const getJobsList = async (offset: number = 0) => {
+export const getJobsList = async (offset: number) => {
   try {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -29,7 +29,6 @@ export const getJobsList = async (offset: number = 0) => {
       jdList: JobDetailsType[];
       totalCount: number;
     } = await response.json();
-    // console.log(data.jdList);
     return data.jdList;
   } catch (error) {
     return [];

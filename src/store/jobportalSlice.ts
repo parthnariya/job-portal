@@ -16,19 +16,20 @@ const jobportalSlice = createSlice({
     builder.addCase(getJobListAsyncThunk.pending, (state) => {
       state.isLoading = true;
       state.error = undefined;
-      state.jobs = []
     });
     builder.addCase(getJobListAsyncThunk.fulfilled, (state, action) => {
       const { payload } = action;
       state.isLoading = false;
       state.error = undefined;
-      state.jobs = payload;
+
+      /* Append Data to existing list for infinite scroll */
+      const newList = [...state.jobs, ...payload];
+      state.jobs = newList;
     });
     builder.addCase(getJobListAsyncThunk.rejected, (state, action) => {
       const { error } = action;
       state.isLoading = false;
       state.error = error.message || "Something went wrong";
-      state.jobs = []
     });
   },
 });

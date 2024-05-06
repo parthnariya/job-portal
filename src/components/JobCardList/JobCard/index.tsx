@@ -25,7 +25,7 @@ const JobCard = ({ data }: PropsType) => {
       <AboutCompany description={data.jobDetailsFromCompany || ""}/>
       <div className="experience">
         <div className="experience-label">Minimum Experience</div>
-        <div className="experience-value">${data.minExp || 0} years</div>
+        <div className="experience-value">{data.minExp || 0} years</div>
       </div>
       <EasyApplyButton />
       <ReferralButton />
