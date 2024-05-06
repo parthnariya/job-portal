@@ -3,6 +3,8 @@ import Chip from "./Chip";
 import ChipOptionList from "./ChipOptionList";
 import "./Filter.css";
 import { FilterTypeEnum } from "../types";
+import { useAppDispatch } from "../../../store";
+import { addFilter } from "../../../store/filterSlice";
 
 type PropsType = {
   type: FilterTypeEnum;
@@ -19,8 +21,7 @@ const Filter = ({ type, options }: PropsType) => {
   /* state which maintain the array of selected options */
   const [selectedValue, setSelectedValue] = useState<Array<string>>([]);
 
-  /* setting filter values to search param so that we can use entire page */
-  
+  const dispatch = useAppDispatch();
 
   /* function to open list */
   const openListHandler = () => {
@@ -42,6 +43,9 @@ const Filter = ({ type, options }: PropsType) => {
 
     /* add item to selected value's array */
     setSelectedValue((prev) => [...prev, opt]);
+
+    /* dispatch action for filter data */
+    dispatch(addFilter({ filter: type, value: opt }));
 
     closeListHandler();
   };
