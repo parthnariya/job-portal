@@ -19,6 +19,9 @@ const Filter = ({ type, options }: PropsType) => {
   /* state which maintain the array of selected options */
   const [selectedValue, setSelectedValue] = useState<Array<string>>([]);
 
+  /* setting filter values to search param so that we can use entire page */
+  
+
   /* function to open list */
   const openListHandler = () => {
     setShowOptionList(() => true);
