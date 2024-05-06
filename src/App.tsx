@@ -6,6 +6,7 @@ import Loader from "./components/UI/Loader";
 import { useInfiniteScroll } from "./hooks/useInfiniteScroll";
 import { useAppDispatch, useAppSelector } from "./store";
 import { getJobListAsyncThunk } from "./store/jobportalApi";
+import { throttle } from "./utils/thorttlel";
 function App() {
   useInfiniteScroll();
 
@@ -13,7 +14,9 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getJobListAsyncThunk({ offset: 0 }));
+    throttle(undefined, () => {
+      dispatch(getJobListAsyncThunk({ offset: 0 }));
+    },200);
   }, [dispatch]);
 
   return (
