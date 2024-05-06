@@ -36,8 +36,7 @@ function filterFunction(
           item.companyName &&
           item.companyName
             .toLocaleLowerCase()
-            .toLocaleLowerCase()
-            .includes(filterValue[0])
+            .includes(filterValue[0].toLocaleLowerCase())
       );
       break;
     default:
